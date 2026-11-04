@@ -1,0 +1,34 @@
+;;; gruvbox-material-light-medium-theme.el --- Gruvbox Material light, medium contrast -*- lexical-binding: t -*-
+
+;; Copyright (C) 2026 svranesevic
+
+;; Author: svranesevic <svranesevic@users.noreply.github.com>
+;; URL: https://github.com/svranesevic/gruvbox-material
+;; SPDX-License-Identifier: MIT
+
+;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+
+;; Gruvbox Material, light background, medium contrast, material foreground.
+;; See gruvbox-material.el for the palette, the faces and the license.
+
+;;; Code:
+
+(eval-and-compile
+  (require 'gruvbox-material
+           (expand-file-name
+            "gruvbox-material"
+            (file-name-directory
+             (or load-file-name
+                 (bound-and-true-p byte-compile-current-file)
+                 buffer-file-name)))))
+
+(deftheme gruvbox-material-light-medium "Gruvbox Material light, medium contrast.")
+
+(gruvbox-material-theme-define 'gruvbox-material-light-medium 'light 'medium)
+
+(provide-theme 'gruvbox-material-light-medium)
+(provide 'gruvbox-material-light-medium-theme)
+
+;;; gruvbox-material-light-medium-theme.el ends here

@@ -1,4 +1,4 @@
-;;; gruvbox-material-hard-theme.el --- Gruvbox Material dark, hard contrast -*- lexical-binding: t -*-
+;;; gruvbox-material-dark-hard-theme.el --- Gruvbox Material dark, hard contrast -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2026 svranesevic
 
@@ -11,8 +11,7 @@
 ;;; Commentary:
 
 ;; Gruvbox Material, dark background, hard contrast, material foreground.
-;; See gruvbox-material.el for the palette, the faces and the
-;; license.
+;; See gruvbox-material.el for the palette, the faces and the license.
 
 ;;; Code:
 
@@ -25,11 +24,11 @@
                  (bound-and-true-p byte-compile-current-file)
                  buffer-file-name)))))
 
-(deftheme gruvbox-material-hard "Gruvbox Material dark, hard contrast.")
+(deftheme gruvbox-material-dark-hard "Gruvbox Material dark, hard contrast.")
 
-(gruvbox-material-theme-define 'gruvbox-material-hard 'hard)
+(gruvbox-material-theme-define 'gruvbox-material-dark-hard 'dark 'hard)
 
-(provide-theme 'gruvbox-material-hard)
-(provide 'gruvbox-material-hard-theme)
+(provide-theme 'gruvbox-material-dark-hard)
+(provide 'gruvbox-material-dark-hard-theme)
 
-;;; gruvbox-material-hard-theme.el ends here
+;;; gruvbox-material-dark-hard-theme.el ends here

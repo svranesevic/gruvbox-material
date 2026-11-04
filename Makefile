@@ -11,13 +11,7 @@ compile: clean
 	  -f batch-byte-compile $(FILES)
 
 checkdoc:
-	$(BATCH) --eval '(progn \
-	  (require (quote checkdoc)) \
-	  (let ((errors 0)) \
-	    (advice-add (quote checkdoc-create-error) :before \
-	                (lambda (&rest _) (setq errors (1+ errors)))) \
-	    (dolist (f command-line-args-left) (checkdoc-file f)) \
-	    (kill-emacs (if (> errors 0) 1 0))))' $(FILES)
+	$(BATCH) -l test/checkdoc.el $(FILES)
 
 lint:
 	$(BATCH) -l test/lint.el $(FILES)

@@ -1,4 +1,4 @@
-;;; gruvbox-material-medium-theme.el --- Gruvbox Material dark, medium contrast -*- lexical-binding: t -*-
+;;; gruvbox-material-dark-medium-theme.el --- Gruvbox Material dark, medium contrast -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2026 svranesevic
 
@@ -11,8 +11,7 @@
 ;;; Commentary:
 
 ;; Gruvbox Material, dark background, medium contrast, material foreground.
-;; See gruvbox-material.el for the palette, the faces and the
-;; license.
+;; See gruvbox-material.el for the palette, the faces and the license.
 
 ;;; Code:
 
@@ -25,11 +24,11 @@
                  (bound-and-true-p byte-compile-current-file)
                  buffer-file-name)))))
 
-(deftheme gruvbox-material-medium "Gruvbox Material dark, medium contrast.")
+(deftheme gruvbox-material-dark-medium "Gruvbox Material dark, medium contrast.")
 
-(gruvbox-material-theme-define 'gruvbox-material-medium 'medium)
+(gruvbox-material-theme-define 'gruvbox-material-dark-medium 'dark 'medium)
 
-(provide-theme 'gruvbox-material-medium)
-(provide 'gruvbox-material-medium-theme)
+(provide-theme 'gruvbox-material-dark-medium)
+(provide 'gruvbox-material-dark-medium-theme)
 
-;;; gruvbox-material-medium-theme.el ends here
+;;; gruvbox-material-dark-medium-theme.el ends here

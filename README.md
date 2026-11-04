@@ -2,15 +2,18 @@
 
 [![CI](https://github.com/svranesevic/gruvbox-material/actions/workflows/ci.yml/badge.svg)](https://github.com/svranesevic/gruvbox-material/actions/workflows/ci.yml)
 
-The package gives three themes. Each theme has a different background contrast:
+[Gruvbox Material](https://github.com/sainnhe/gruvbox-material) for Emacs.
 
-| Theme                     | Background |
-| ------------------------- | ---------- |
-| `gruvbox-material-hard`   | `#1d2021`  |
-| `gruvbox-material-medium` | `#282828`  |
-| `gruvbox-material-soft`   | `#32302f`  |
+The package gives six themes: a dark and a light theme for each background
+contrast.
 
-All three themes use the "material" foreground palette.
+| Contrast | Dark theme                     | Background | Light theme                     | Background |
+| -------- | ------------------------------ | ---------- | ------------------------------- | ---------- |
+| Hard     | `gruvbox-material-dark-hard`   | `#1d2021`  | `gruvbox-material-light-hard`   | `#f9f5d7`  |
+| Medium   | `gruvbox-material-dark-medium` | `#282828`  | `gruvbox-material-light-medium` | `#fbf1c7`  |
+| Soft     | `gruvbox-material-dark-soft`   | `#32302f`  | `gruvbox-material-light-soft`   | `#f2e5bc`  |
+
+All six themes use the "material" foreground palette.
 
 ## Requirements
 
@@ -23,7 +26,7 @@ All three themes use the "material" foreground palette.
 
 ```elisp
 (package-vc-install "https://github.com/svranesevic/gruvbox-material")
-(load-theme 'gruvbox-material-medium t)
+(load-theme 'gruvbox-material-dark-medium t)
 ```
 
 ### With `use-package` (Emacs 30.1 or later)
@@ -33,7 +36,7 @@ All three themes use the "material" foreground palette.
   :vc (:url "https://github.com/svranesevic/gruvbox-material"
        :rev :newest)
   :config
-  (load-theme 'gruvbox-material-medium t))
+  (load-theme 'gruvbox-material-dark-medium t))
 ```
 
 ### Manual installation
@@ -48,7 +51,7 @@ All three themes use the "material" foreground palette.
 
    ```elisp
    (add-to-list 'custom-theme-load-path "/path/to/gruvbox-material/")
-   (load-theme 'gruvbox-material-medium t)
+   (load-theme 'gruvbox-material-dark-medium t)
    ```
 
 You do not have to add the directory to `load-path`.
@@ -67,7 +70,7 @@ The backgrounds, the greys and the text colors do not change.
 - A larger value gives stronger colors.
 
 Use `setopt`, `customize-set-variable` or Customize to change the value. The
-enabled theme then loads again with the new colors:
+enabled themes then load again with the new colors:
 
 ```elisp
 ;; Emacs 29.1 or later

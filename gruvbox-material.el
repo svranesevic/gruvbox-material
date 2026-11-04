@@ -91,24 +91,25 @@
 
 ;;; Commentary:
 
-;; Port of the dark variants of Gruvbox Material to Emacs.
+;; Port of Gruvbox Material to Emacs.
 ;;
-;; This package gives three themes, one for each background contrast:
+;; This package gives six themes, a dark and a light theme for each
+;; background contrast:
 ;;
-;;   - `gruvbox-material-hard'
-;;   - `gruvbox-material-medium'
-;;   - `gruvbox-material-soft'
+;;   - `gruvbox-material-dark-hard'    - `gruvbox-material-light-hard'
+;;   - `gruvbox-material-dark-medium'  - `gruvbox-material-light-medium'
+;;   - `gruvbox-material-dark-soft'    - `gruvbox-material-light-soft'
 ;;
 ;; Enable one with, for example:
 ;;
-;;   (load-theme 'gruvbox-material-medium t)
+;;   (load-theme 'gruvbox-material-dark-medium t)
 ;;
 ;; The user option `gruvbox-material-saturation' sets the strength
 ;; of the accent colors.  A value of 1.0 gives the exact upstream colors.
 ;;
 ;; Credits:
 ;;
-;; - The colors are the dark "material" palette of Gruvbox Material by
+;; - The colors are the "material" palettes of Gruvbox Material by
 ;;   sainnhe (https://github.com/sainnhe/gruvbox-material), MIT license.
 ;;   The face choices follow colors/gruvbox-material.vim with its default
 ;;   options (float_style "bright", visual "grey background", menu
@@ -131,93 +132,176 @@
 
 (defconst gruvbox-material-backgrounds
   '(
-    (hard
-      (bg-dim           . "#141617")
-      (bg0              . "#1d2021")
-      (bg1              . "#282828")
-      (bg2              . "#282828")
-      (bg3              . "#3c3836")
-      (bg4              . "#3c3836")
-      (bg5              . "#504945")
-      (bg-statusline1   . "#282828")
-      (bg-statusline2   . "#32302f")
-      (bg-statusline3   . "#504945")
-      (bg-visual-red    . "#442e2d")
-      (bg-visual-yellow . "#473c29")
-      (bg-visual-green  . "#333e34")
-      (bg-visual-blue   . "#2e3b3b")
-      (bg-visual-purple . "#3c333b")
-      (bg-diff-red      . "#3c1f1e")
-      (bg-diff-green    . "#32361a")
-      (bg-diff-blue     . "#0d3138")
-      (bg-current-word  . "#32302f"))
-    (medium
-      (bg-dim           . "#1b1b1b")
-      (bg0              . "#282828")
-      (bg1              . "#32302f")
-      (bg2              . "#32302f")
-      (bg3              . "#45403d")
-      (bg4              . "#45403d")
-      (bg5              . "#5a524c")
-      (bg-statusline1   . "#32302f")
-      (bg-statusline2   . "#3a3735")
-      (bg-statusline3   . "#504945")
-      (bg-visual-red    . "#4c3432")
-      (bg-visual-yellow . "#4f422e")
-      (bg-visual-green  . "#3b4439")
-      (bg-visual-blue   . "#374141")
-      (bg-visual-purple . "#443840")
-      (bg-diff-red      . "#402120")
-      (bg-diff-green    . "#34381b")
-      (bg-diff-blue     . "#0e363e")
-      (bg-current-word  . "#3c3836"))
-    (soft
-      (bg-dim           . "#252423")
-      (bg0              . "#32302f")
-      (bg1              . "#3c3836")
-      (bg2              . "#3c3836")
-      (bg3              . "#504945")
-      (bg4              . "#504945")
-      (bg5              . "#665c54")
-      (bg-statusline1   . "#3c3836")
-      (bg-statusline2   . "#46413e")
-      (bg-statusline3   . "#5b534d")
-      (bg-visual-red    . "#543937")
-      (bg-visual-yellow . "#574833")
-      (bg-visual-green  . "#424a3e")
-      (bg-visual-blue   . "#404946")
-      (bg-visual-purple . "#4b3e45")
-      (bg-diff-red      . "#472322")
-      (bg-diff-green    . "#3d4220")
-      (bg-diff-blue     . "#0f3a42")
-      (bg-current-word  . "#45403d")))
-  "Dark background palettes, one for each contrast.")
+    (dark
+      (hard
+        (bg-dim           . "#141617")
+        (bg0              . "#1d2021")
+        (bg1              . "#282828")
+        (bg2              . "#282828")
+        (bg3              . "#3c3836")
+        (bg4              . "#3c3836")
+        (bg5              . "#504945")
+        (bg-statusline1   . "#282828")
+        (bg-statusline2   . "#32302f")
+        (bg-statusline3   . "#504945")
+        (bg-visual-red    . "#442e2d")
+        (bg-visual-yellow . "#473c29")
+        (bg-visual-green  . "#333e34")
+        (bg-visual-blue   . "#2e3b3b")
+        (bg-visual-purple . "#3c333b")
+        (bg-diff-red      . "#3c1f1e")
+        (bg-diff-green    . "#32361a")
+        (bg-diff-blue     . "#0d3138")
+        (bg-current-word  . "#32302f"))
+      (medium
+        (bg-dim           . "#1b1b1b")
+        (bg0              . "#282828")
+        (bg1              . "#32302f")
+        (bg2              . "#32302f")
+        (bg3              . "#45403d")
+        (bg4              . "#45403d")
+        (bg5              . "#5a524c")
+        (bg-statusline1   . "#32302f")
+        (bg-statusline2   . "#3a3735")
+        (bg-statusline3   . "#504945")
+        (bg-visual-red    . "#4c3432")
+        (bg-visual-yellow . "#4f422e")
+        (bg-visual-green  . "#3b4439")
+        (bg-visual-blue   . "#374141")
+        (bg-visual-purple . "#443840")
+        (bg-diff-red      . "#402120")
+        (bg-diff-green    . "#34381b")
+        (bg-diff-blue     . "#0e363e")
+        (bg-current-word  . "#3c3836"))
+      (soft
+        (bg-dim           . "#252423")
+        (bg0              . "#32302f")
+        (bg1              . "#3c3836")
+        (bg2              . "#3c3836")
+        (bg3              . "#504945")
+        (bg4              . "#504945")
+        (bg5              . "#665c54")
+        (bg-statusline1   . "#3c3836")
+        (bg-statusline2   . "#46413e")
+        (bg-statusline3   . "#5b534d")
+        (bg-visual-red    . "#543937")
+        (bg-visual-yellow . "#574833")
+        (bg-visual-green  . "#424a3e")
+        (bg-visual-blue   . "#404946")
+        (bg-visual-purple . "#4b3e45")
+        (bg-diff-red      . "#472322")
+        (bg-diff-green    . "#3d4220")
+        (bg-diff-blue     . "#0f3a42")
+        (bg-current-word  . "#45403d")))
+    (light
+      (hard
+        (bg-dim           . "#f3eac7")
+        (bg0              . "#f9f5d7")
+        (bg1              . "#f5edca")
+        (bg2              . "#f3eac7")
+        (bg3              . "#f2e5bc")
+        (bg4              . "#eee0b7")
+        (bg5              . "#ebdbb2")
+        (bg-statusline1   . "#f5edca")
+        (bg-statusline2   . "#f3eac7")
+        (bg-statusline3   . "#eee0b7")
+        (bg-visual-red    . "#f0ddc3")
+        (bg-visual-yellow . "#f9eabf")
+        (bg-visual-green  . "#dde5c2")
+        (bg-visual-blue   . "#d9e1cc")
+        (bg-visual-purple . "#eee2d1")
+        (bg-diff-red      . "#f8e4c9")
+        (bg-diff-green    . "#e4edc8")
+        (bg-diff-blue     . "#e0e9d3")
+        (bg-current-word  . "#f3eac7"))
+      (medium
+        (bg-dim           . "#f2e5bc")
+        (bg0              . "#fbf1c7")
+        (bg1              . "#f4e8be")
+        (bg2              . "#f2e5bc")
+        (bg3              . "#eee0b7")
+        (bg4              . "#e5d5ad")
+        (bg5              . "#ddccab")
+        (bg-statusline1   . "#f2e5bc")
+        (bg-statusline2   . "#f2e5bc")
+        (bg-statusline3   . "#e5d5ad")
+        (bg-visual-red    . "#f1d9b5")
+        (bg-visual-yellow . "#fae7b3")
+        (bg-visual-green  . "#dee2b6")
+        (bg-visual-blue   . "#dadec0")
+        (bg-visual-purple . "#efdec3")
+        (bg-diff-red      . "#f9e0bb")
+        (bg-diff-green    . "#e6eabc")
+        (bg-diff-blue     . "#e2e6c7")
+        (bg-current-word  . "#f2e5bc"))
+      (soft
+        (bg-dim           . "#ebdbb2")
+        (bg0              . "#f2e5bc")
+        (bg1              . "#eddeb5")
+        (bg2              . "#ebdbb2")
+        (bg3              . "#e6d5ae")
+        (bg4              . "#dac9a5")
+        (bg5              . "#d5c4a1")
+        (bg-statusline1   . "#ebdbb2")
+        (bg-statusline2   . "#ebdbb2")
+        (bg-statusline3   . "#dac9a5")
+        (bg-visual-red    . "#efd2b3")
+        (bg-visual-yellow . "#f3deaa")
+        (bg-visual-green  . "#d7d9ae")
+        (bg-visual-blue   . "#d3d5b8")
+        (bg-visual-purple . "#e8d4ba")
+        (bg-diff-red      . "#f7d9b9")
+        (bg-diff-green    . "#dfe1b4")
+        (bg-diff-blue     . "#dbddbf")
+        (bg-current-word  . "#ebdbb2"))))
+  "Background palettes, one for each background and contrast.
+Each element has the form (BACKGROUND (CONTRAST . COLORS)...).")
 
-(defconst gruvbox-material-foreground
+(defconst gruvbox-material-foregrounds
   '(
-    (fg0       . "#d4be98")
-    (fg1       . "#ddc7a1")
-    (red       . "#ea6962")
-    (orange    . "#e78a4e")
-    (yellow    . "#d8a657")
-    (green     . "#a9b665")
-    (aqua      . "#89b482")
-    (blue      . "#7daea3")
-    (purple    . "#d3869b")
-    (bg-red    . "#ea6962")
-    (bg-green  . "#a9b665")
-    (bg-yellow . "#d8a657"))
-  "Dark \"material\" foreground palette.")
+    (dark
+      (fg0       . "#d4be98")
+      (fg1       . "#ddc7a1")
+      (red       . "#ea6962")
+      (orange    . "#e78a4e")
+      (yellow    . "#d8a657")
+      (green     . "#a9b665")
+      (aqua      . "#89b482")
+      (blue      . "#7daea3")
+      (purple    . "#d3869b")
+      (bg-red    . "#ea6962")
+      (bg-green  . "#a9b665")
+      (bg-yellow . "#d8a657"))
+    (light
+      (fg0       . "#654735")
+      (fg1       . "#4f3829")
+      (red       . "#c14a4a")
+      (orange    . "#c35e0a")
+      (yellow    . "#b47109")
+      (green     . "#6c782e")
+      (aqua      . "#4c7a5d")
+      (blue      . "#45707a")
+      (purple    . "#945e80")
+      (bg-red    . "#ae5858")
+      (bg-green  . "#6f8352")
+      (bg-yellow . "#a96b2c")))
+  "\"Material\" foreground palettes, one for each background.")
 
-(defconst gruvbox-material-grey
+(defconst gruvbox-material-greys
   '(
-    (grey0 . "#7c6f64")
-    (grey1 . "#928374")
-    (grey2 . "#a89984"))
-  "Dark grey palette.")
+    (dark
+      (grey0 . "#7c6f64")
+      (grey1 . "#928374")
+      (grey2 . "#a89984"))
+    (light
+      (grey0 . "#a89984")
+      (grey1 . "#928374")
+      (grey2 . "#7c6f64")))
+  "Grey palettes, one for each background.
+In each palette, grey0 has the lowest contrast with the background.")
 
 (defgroup gruvbox-material nil
-  "Gruvbox Material dark themes."
+  "Gruvbox Material themes."
   :group 'faces
   :prefix "gruvbox-material-"
   :link '(url-link "https://github.com/svranesevic/gruvbox-material"))
@@ -278,9 +362,10 @@ A plain `setq' applies only at the next `load-theme'."
            (mapcar (lambda (c) (round (* c 255)))
                    (color-hsl-to-rgb h (min 1.0 (* s factor)) l)))))
 
-(defun gruvbox-material--palette (contrast)
-  "Return the full dark palette for CONTRAST: `hard', `medium' or `soft'.
-Apply `gruvbox-material-saturation' to the accent colors."
+(defun gruvbox-material--palette (background contrast)
+  "Return the full palette for BACKGROUND and CONTRAST.
+BACKGROUND is `dark' or `light'.  CONTRAST is `hard', `medium' or
+`soft'.  Apply `gruvbox-material-saturation' to the accent colors."
   (mapcar (lambda (entry)
             (if (and (memq (car entry) gruvbox-material--saturated-colors)
                      (/= gruvbox-material-saturation 1.0))
@@ -288,18 +373,23 @@ Apply `gruvbox-material-saturation' to the accent colors."
                       (gruvbox-material--saturate
                        (cdr entry) gruvbox-material-saturation))
               entry))
-          (append (alist-get contrast gruvbox-material-backgrounds)
-                  gruvbox-material-foreground
-                  gruvbox-material-grey)))
+          (append (alist-get contrast
+                             (alist-get background gruvbox-material-backgrounds))
+                  (alist-get background gruvbox-material-foregrounds)
+                  (alist-get background gruvbox-material-greys))))
 
 (defun gruvbox-material--color (palette name)
   "Return color NAME from PALETTE.  Signal an error if it is missing."
   (or (alist-get name palette)
       (error "Gruvbox-material: no color `%s'" name)))
 
-(defun gruvbox-material-theme-define (theme contrast)
-  "Set the faces and variables of THEME with the dark CONTRAST palette."
-  (let* ((palette (gruvbox-material--palette contrast))
+(defun gruvbox-material-theme-define (theme background contrast)
+  "Set the faces and variables of THEME.
+Use the palette for BACKGROUND (`dark' or `light') and CONTRAST
+\(`hard', `medium' or `soft')."
+  (unless (memq background '(dark light))
+    (error "Gruvbox-material: unknown background `%s'" background))
+  (let* ((palette (gruvbox-material--palette background contrast))
          (class '((class color) (min-colors 89)))
          (aqua             (gruvbox-material--color palette 'aqua))
          (bg-current-word  (gruvbox-material--color palette 'bg-current-word))
@@ -328,7 +418,15 @@ Apply `gruvbox-material-saturation' to the accent colors."
          (orange           (gruvbox-material--color palette 'orange))
          (purple           (gruvbox-material--color palette 'purple))
          (red              (gruvbox-material--color palette 'red))
-         (yellow           (gruvbox-material--color palette 'yellow)))
+         (yellow           (gruvbox-material--color palette 'yellow))
+         (dark             (eq background 'dark))
+         ;; Upstream uses grey1 for inlay hints on a light background.
+         (inlay-hint       (if dark grey0 grey1))
+         ;; ANSI black and white change places on a light background.
+         (term-black        (if dark bg-statusline1 fg0))
+         (term-white        (if dark fg1 bg5))
+         (term-bright-black (if dark grey0 grey2))
+         (term-bright-white (if dark fg0 bg5)))
     (custom-theme-set-variables
      theme
      `(lsp-ui-doc-border ,grey1))
@@ -623,9 +721,9 @@ Apply `gruvbox-material-saturation' to the accent colors."
 
      ;; ── LSP ──────────────────────────────────────────────────────────────────
      `(eglot-highlight-symbol-face       ((,class (:background ,bg-current-word))))
-     `(eglot-inlay-hint-face             ((,class (:foreground ,grey0))))
-     `(eglot-parameter-hint-face         ((,class (:foreground ,grey0))))
-     `(eglot-type-hint-face              ((,class (:foreground ,grey0))))
+     `(eglot-inlay-hint-face             ((,class (:foreground ,inlay-hint))))
+     `(eglot-parameter-hint-face         ((,class (:foreground ,inlay-hint))))
+     `(eglot-type-hint-face              ((,class (:foreground ,inlay-hint))))
      `(eglot-diagnostic-tag-unnecessary-face ((,class (:foreground ,grey0))))
      `(eglot-diagnostic-tag-deprecated-face ((,class (:foreground ,grey1 :strike-through t))))
      `(lsp-face-highlight-textual        ((,class (:background ,bg-current-word))))
@@ -634,7 +732,7 @@ Apply `gruvbox-material-saturation' to the accent colors."
      `(lsp-ui-sideline-code-action       ((,class (:foreground ,yellow))))
      `(lsp-ui-sideline-current-symbol    ((,class (:foreground ,fg0 :background ,bg-current-word))))
      `(lsp-ui-sideline-symbol-info       ((,class (:foreground ,grey1 :slant italic))))
-     `(lsp-inlay-hint-face               ((,class (:foreground ,grey0))))
+     `(lsp-inlay-hint-face               ((,class (:foreground ,inlay-hint))))
 
      ;; ── Floating windows (float_style "bright") ──────────────────────────────
      ;; NormalFloat = fg1 on bg3, FloatBorder = grey1, FloatTitle = orange on bg5.
@@ -1140,40 +1238,40 @@ Apply `gruvbox-material-saturation' to the accent colors."
      `(eshell-ls-clutter                 ((,class (:foreground ,grey0))))
      `(eshell-ls-archive                 ((,class (:foreground ,yellow))))
      `(vterm-color-default               ((,class (:foreground ,fg0 :background ,bg0))))
-     `(vterm-color-black                 ((,class (:foreground ,bg-statusline1 :background ,bg-statusline1))))
+     `(vterm-color-black                 ((,class (:foreground ,term-black :background ,term-black))))
      `(vterm-color-red                   ((,class (:foreground ,red :background ,red))))
      `(vterm-color-green                 ((,class (:foreground ,green :background ,green))))
      `(vterm-color-yellow                ((,class (:foreground ,yellow :background ,yellow))))
      `(vterm-color-blue                  ((,class (:foreground ,blue :background ,blue))))
      `(vterm-color-magenta               ((,class (:foreground ,purple :background ,purple))))
      `(vterm-color-cyan                  ((,class (:foreground ,aqua :background ,aqua))))
-     `(vterm-color-white                 ((,class (:foreground ,fg1 :background ,fg1))))
-     `(vterm-color-bright-black          ((,class (:foreground ,grey0 :background ,grey0))))
+     `(vterm-color-white                 ((,class (:foreground ,term-white :background ,term-white))))
+     `(vterm-color-bright-black          ((,class (:foreground ,term-bright-black :background ,term-bright-black))))
      `(vterm-color-bright-red            ((,class (:foreground ,orange :background ,orange))))
      `(vterm-color-bright-green          ((,class (:foreground ,green :background ,green))))
      `(vterm-color-bright-yellow         ((,class (:foreground ,yellow :background ,yellow))))
      `(vterm-color-bright-blue           ((,class (:foreground ,blue :background ,blue))))
      `(vterm-color-bright-magenta        ((,class (:foreground ,purple :background ,purple))))
      `(vterm-color-bright-cyan           ((,class (:foreground ,aqua :background ,aqua))))
-     `(vterm-color-bright-white          ((,class (:foreground ,fg0 :background ,fg0))))
+     `(vterm-color-bright-white          ((,class (:foreground ,term-bright-white :background ,term-bright-white))))
 
      ;; ── Ansi colors ──────────────────────────────────────────────────────────
-     `(ansi-color-black                  ((,class (:foreground ,bg-statusline1 :background ,bg-statusline1))))
+     `(ansi-color-black                  ((,class (:foreground ,term-black :background ,term-black))))
      `(ansi-color-red                    ((,class (:foreground ,red :background ,red))))
      `(ansi-color-green                  ((,class (:foreground ,green :background ,green))))
      `(ansi-color-yellow                 ((,class (:foreground ,yellow :background ,yellow))))
      `(ansi-color-blue                   ((,class (:foreground ,blue :background ,blue))))
      `(ansi-color-magenta                ((,class (:foreground ,purple :background ,purple))))
      `(ansi-color-cyan                   ((,class (:foreground ,aqua :background ,aqua))))
-     `(ansi-color-white                  ((,class (:foreground ,fg1 :background ,fg1))))
-     `(ansi-color-bright-black           ((,class (:foreground ,grey0 :background ,grey0))))
+     `(ansi-color-white                  ((,class (:foreground ,term-white :background ,term-white))))
+     `(ansi-color-bright-black           ((,class (:foreground ,term-bright-black :background ,term-bright-black))))
      `(ansi-color-bright-red             ((,class (:foreground ,orange :background ,orange))))
      `(ansi-color-bright-green           ((,class (:foreground ,green :background ,green))))
      `(ansi-color-bright-yellow          ((,class (:foreground ,yellow :background ,yellow))))
      `(ansi-color-bright-blue            ((,class (:foreground ,blue :background ,blue))))
      `(ansi-color-bright-magenta         ((,class (:foreground ,purple :background ,purple))))
      `(ansi-color-bright-cyan            ((,class (:foreground ,aqua :background ,aqua))))
-     `(ansi-color-bright-white           ((,class (:foreground ,fg0 :background ,fg0))))
+     `(ansi-color-bright-white           ((,class (:foreground ,term-bright-white :background ,term-bright-white))))
 
      ;; ── Calendar ─────────────────────────────────────────────────────────────
      `(calendar-today                    ((,class (:foreground ,orange :weight bold :underline t))))
