@@ -885,7 +885,7 @@ Use the palette for BACKGROUND (`dark' or `light') and CONTRAST
      `(ivy-prompt-match                  ((,class (:foreground ,fg0 :background ,bg-visual-yellow))))
 
      ;; ── Xref ─────────────────────────────────────────────────────────────────
-     `(xref-match                        ((,class (:foreground ,bg0 :background ,bg-green))))
+     `(xref-match                        ((,class (:background ,bg-visual-green))))
      `(xref-file-header                  ((,class (:foreground ,orange :weight bold))))
      `(xref-line-number                  ((,class (:foreground ,grey0))))
 
