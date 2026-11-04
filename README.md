@@ -1,6 +1,6 @@
 # gruvbox-material
 
-Dark variants of [Gruvbox Material](https://github.com/sainnhe/gruvbox-material) for Emacs.
+[![CI](https://github.com/svranesevic/gruvbox-material/actions/workflows/ci.yml/badge.svg)](https://github.com/svranesevic/gruvbox-material/actions/workflows/ci.yml)
 
 The package gives three themes. Each theme has a different background contrast:
 
